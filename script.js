@@ -2,8 +2,8 @@
 var todayDate = moment().format('dddd, MMM Do YYYY LT');
 $("#currentDay").html(todayDate);
 
-$(document).ready(function () {
-    // saveBtn click listener 
+$(function () {
+    // saveButton click listener - this is the same as "eventListener"
     $(".saveButton").on("click", function () {
         // Get nearby values of the description in JQuery
         var text = $(this).siblings(".description").val();
