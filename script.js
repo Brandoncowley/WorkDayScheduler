@@ -1,10 +1,10 @@
-// moment might be outdated, check out Luxon
-var todayDate = moment().format('dddd, MMM Do YYYY');
+// Using Moment, but look at Luxon for the future
+var todayDate = moment().format('dddd, MMM Do YYYY LT');
 $("#currentDay").html(todayDate);
 
 $(document).ready(function () {
     // saveBtn click listener 
-    $(".saveBtn").on("click", function () {
+    $(".saveButton").on("click", function () {
         // Get nearby values of the description in JQuery
         var text = $(this).siblings(".description").val();
         var time = $(this).parent().attr("id");
@@ -14,35 +14,38 @@ $(document).ready(function () {
     })
    
     function timeTracker() {
-        //get current number of hours.
+        //Need to get the current hour (time count)
         var timeNow = moment().hour();
 
-        // loop over time blocks
+        //Need to effect each time block, figure out how with jQuery
         $(".time-block").each(function () {
             var blockTime = parseInt($(this).attr("id").split("hour")[1]);
 
-            // To check the time and add the classes for background indicators
+            //Add classes for fill color based on Moment info
             if (blockTime < timeNow) {
-                $(this).removeClass("future");
-                $(this).removeClass("present");
                 $(this).addClass("past");
+                $(this).removeClass("present");
+                $(this).removeClass("future");
+                
+                
             }
             else if (blockTime === timeNow) {
                 $(this).removeClass("past");
-                $(this).removeClass("future");
                 $(this).addClass("present");
+                $(this).removeClass("future");
+                
             }
             else {
-                $(this).removeClass("present");
                 $(this).removeClass("past");
+                $(this).removeClass("present");
                 $(this).addClass("future");
 
             }
         })
     }
 
-    // Get item from local storage if any
-    $("#hour8 .description").val(localStorage.getItem("hour8"));
+    // Get item from local storage, display to time block
+    
     $("#hour9 .description").val(localStorage.getItem("hour9"));
     $("#hour10 .description").val(localStorage.getItem("hour10"));
     $("#hour11 .description").val(localStorage.getItem("hour11"));
