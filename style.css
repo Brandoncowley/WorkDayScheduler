@@ -1,5 +1,5 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   line-height: 1;
 }
@@ -23,7 +23,6 @@ textarea {
 
 .description {
   white-space: pre-wrap;
-  width: 100%
 }
 
 .time-block {
@@ -64,7 +63,6 @@ textarea {
   border-bottom-right-radius: 15px;
   background-color: #06aed5;
   color: white;
-  height: 75%;
 }
 
 .saveBtn i:hover {
